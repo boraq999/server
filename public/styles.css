@@ -1,0 +1,82 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  border-radius: 10px 10px 0 0 !important;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+}
+
+.file-icon {
+  font-size: 24px;
+  margin-left: 15px;
+}
+
+.file-info {
+  flex-grow: 1;
+}
+
+.file-actions {
+  margin-right: auto;
+}
+
+#upload-form {
+  position: relative;
+}
+
+.progress {
+  height: 10px;
+  margin-bottom: 15px;
+}
+
+.client-item {
+  display: flex;
+  align-items: center;
+}
+
+.client-icon {
+  margin-left: 10px;
+  font-size: 20px;
+  color: #28a745;
+}
+
+/* تنسيق أيقونات الملفات حسب النوع */
+.file-pdf { color: #dc3545; }
+.file-image { color: #28a745; }
+.file-archive { color: #fd7e14; }
+.file-doc { color: #0d6efd; }
+.file-default { color: #6c757d; }
+
+/* تحسينات للهواتف المحمولة */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .card {
+    margin-bottom: 15px;
+  }
+}

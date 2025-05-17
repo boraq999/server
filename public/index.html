@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مشاركة الملفات عبر الشبكة المحلية</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-12 text-center mb-4">
+        <h1 class="display-5">مشاركة الملفات عبر الشبكة المحلية</h1>
+        <p class="lead">قم برفع الملفات ومشاركتها مع الأجهزة المتصلة على نفس الشبكة</p>
+      </div>
+    </div>
+
+    <!-- معلومات المستخدم -->
+    <div class="row mb-4">
+      <div class="col-md-6 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">معلوماتك</h5>
+            <div class="input-group mb-3">
+              <span class="input-group-text">اسمك</span>
+              <input type="text" id="username" class="form-control" placeholder="أدخل اسمك هنا">
+              <button class="btn btn-primary" id="save-name">حفظ</button>
+            </div>
+            <div id="user-info" class="mt-2">
+              <p>اسم الجهاز: <span id="device-name">-</span></p>
+              <p>عنوان IP: <span id="device-ip">-</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- قسم رفع الملفات -->
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-header bg-primary text-white">
+            <h5 class="card-title mb-0">رفع ملف جديد</h5>
+          </div>
+          <div class="card-body">
+            <form id="upload-form">
+              <div class="mb-3">
+                <label for="file" class="form-label">اختر ملفاً للمشاركة</label>
+                <input class="form-control" type="file" id="file" required>
+              </div>
+              <div class="progress mb-3 d-none" id="upload-progress-container">
+                <div class="progress-bar" id="upload-progress" role="progressbar" style="width: 0%"></div>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                <i class="bi bi-cloud-upload"></i> رفع الملف
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- قسم الأجهزة المتصلة -->
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-header bg-success text-white">
+            <h5 class="card-title mb-0">الأجهزة المتصلة</h5>
+          </div>
+          <div class="card-body">
+            <ul class="list-group" id="clients-list">
+              <li class="list-group-item text-center">جاري البحث عن أجهزة...</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- قسم الملفات المشتركة -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header bg-info text-white">
+            <h5 class="card-title mb-0">الملفات المشتركة</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>اسم الملف</th>
+                    <th>النوع</th>
+                    <th>الحجم</th>
+                    <th>وقت الرفع</th>
+                    <th>تحميل</th>
+                  </tr>
+                </thead>
+                <tbody id="files-list">
+                  <tr>
+                    <td colspan="5" class="text-center">لا توجد ملفات مشتركة حالياً</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
